@@ -15,6 +15,7 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('course_id')->constrained('courses');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('email')->unique()->nullable();
@@ -23,6 +24,8 @@ class CreateStudentsTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('postcode')->nullable();
+            $table->date('enrolment_date')->nullable();
+            $table->enum('status', ['enrolled', 'completed', 'deferred'])->nullable();
             $table->timestamps();
         });
     }

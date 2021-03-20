@@ -15,14 +15,13 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('campus_id')->nullable()->constrained('campuses');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('phone')->unique()->nullable();
             $table->string('office_location')->nullable();
             $table->timestamps();
-
-            $table->foreignId('campus_id')->nullable()->constrained('campuses');
         });
     }
 

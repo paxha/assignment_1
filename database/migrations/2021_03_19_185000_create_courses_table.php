@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('code')->unique()->nullable();
             $table->string('name')->nullable();
             $table->decimal('credit_points')->nullable();
-            $table->text('notes')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

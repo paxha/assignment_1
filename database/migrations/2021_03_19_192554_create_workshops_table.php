@@ -20,8 +20,8 @@ class CreateWorkshopsTable extends Migration
             $table->foreignId('location_id')->nullable()->constrained('locations');
             $table->foreignId('teacher_id')->nullable()->constrained('teachers');
             $table->string('weekday')->nullable();
-            $table->timestamp('start_time')->nullable();
-            $table->timestamp('end_time')->nullable();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->timestamps();
         });
     }

@@ -11,11 +11,16 @@ class Student extends Model
 
     public function units(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Unit::class);
+        return $this->belongsToMany(Unit::class)->withTimestamps();
     }
 
     public function workshops(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Workshop::class);
+        return $this->belongsToMany(Workshop::class)->withTimestamps();
+    }
+
+    public function assessments(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Assessment::class)->withPivot(['submitted_date', 'days_extension_given', 'marks_awarded'])->withTimestamps();
     }
 }

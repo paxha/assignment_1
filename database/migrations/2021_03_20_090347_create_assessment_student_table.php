@@ -19,7 +19,7 @@ class CreateAssessmentStudentTable extends Migration
             $table->foreignId('student_id')->constrained('students')->cascadeOnDelete();
             $table->date('submitted_date')->nullable();
             $table->integer('days_extension_given')->nullable();
-            $table->integer('marks_awarded')->nullable();
+            $table->decimal('marks_awarded')->nullable();
             $table->timestamps();
         });
     }
